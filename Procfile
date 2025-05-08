@@ -1,1 +1,1 @@
-web: gunicorn divipay.wsgi
+web: gunicorn djangocrud.wsgi
