@@ -1,1 +1,1 @@
-web: gunicorn djangocru.wsgi
+web: gunicorn djangocrud.wsgi
