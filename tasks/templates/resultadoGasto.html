@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="mb-4 text-center">Resultado del gasto "{{ gasto.nombre }}"</h2>
+
+        <p><strong>Monto total:</strong> ${{ gasto.monto }}</p>
+        <p><strong>Número de pagadores:</strong> {{ num_pagadores }}</p>
+        <p class="fs-5 mt-4"><strong>Debe pagar cada uno: ${{ aporte }}</strong></p>
+    </div>
+</div>
+{% endblock %}
+

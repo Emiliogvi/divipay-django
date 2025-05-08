@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="mb-4 text-center">Nuevo Gasto</h2>
+
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <form action="/gasto/" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-dark">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

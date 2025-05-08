@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Grupos creados</h1>
+
+            <ul class="list-group">
+                {% for Grupo in grupos %}
+                <a class="list-group-item" href="{% url 'detalle_grupo' Grupo.id %}">
+                    
+                        <strong>{{Grupo.nombre}}</strong>
+                        <p>{{Grupo.descripcion}}</p>
+                        <p>{{Grupo.creador.username}}</p>
+                    
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

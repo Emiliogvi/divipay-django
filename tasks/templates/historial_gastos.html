@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow p-4">
+        <h2 class="text-center mb-4">Historial de Gastos</h2>
+
+        {% if gastos %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Monto</th>
+                        <th>Grupo</th>
+                        <th>Fecha</th>
+                        <th>N° Pagadores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for gasto in gastos %}
+                    <tr>
+                        <td><a href="{% url 'detalle_gasto' gasto.id %}">{{ gasto.nombre }}</a></td>
+                        <td>${{ gasto.monto }}</td>
+                        <td>{{ gasto.grupo.nombre }}</td>
+                        <td>{{ gasto.fecha|date:"d/m/Y H:i" }}</td>
+                        <td>{{ gasto.numero_pagadores }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="text-center">Aún no has registrado ningún gasto.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

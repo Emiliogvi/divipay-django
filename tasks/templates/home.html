@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body text-center">
+        <h1 class="display-1">DiviPay</h1>
+        <p class="lead">Comparte los gastos, no los problemas.<br> Lleva el control de tus finanzas en grupo de forma fácil y rápida.</p>
+        
+        {% if not user.is_authenticated %}
+            <div class="my-4">
+                <a class="btn btn-dark btn-lg mx-2" href="/signup/">
+                Empieza ahora
+                </a>
+                <a class="btn btn-outline-secondary btn-lg mx-2" href="/signin/">
+                Ya tengo cuenta
+                </a>
+            </div>
+{% endif %}
+    </section>
+
+    <section class="row text-center mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">💸 Registra tus gastos</h5>
+                    <p class="card-text">Agrega rápidamente gastos individuales o compartidos con amigos, familia o compañeros.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">🧾 Transparencia total</h5>
+                    <p class="card-text">Todos ven cuánto han aportado y cuánto deben. Sin confusiones ni malos entendidos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">📊 Reportes claros</h5>
+                    <p class="card-text">Obtén resúmenes por grupo, persona o período de tiempo. ¡Toma mejores decisiones!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

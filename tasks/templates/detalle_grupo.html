@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="mb-4 text-center">{{ grupo.nombre }}</h2>
+
+        <!-- Formulario para actualizar grupo -->
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.as_p }}
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-dark" type="submit">Actualizar grupo</button>
+            </div>
+        </form>
+
+        <hr class="my-4">
+
+        <!-- Formulario para eliminar grupo -->
+        <form action="{% url 'eliminar_grupo' grupo.id %}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este grupo?');">
+            {% csrf_token %}
+            <div class="d-grid gap-2">
+                <button class="btn btn-danger" type="submit">Eliminar grupo</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const textarea = document.querySelector("textarea");
+        if (textarea) {
+            textarea.setAttribute("style", "height:" + textarea.scrollHeight + "px;overflow-y:hidden;");
+            textarea.addEventListener("input", function() {
+                this.style.height = "auto";
+                this.style.height = (this.scrollHeight) + "px";
+            });
+        }
+    });
+</script>
+
+{% endblock %}
