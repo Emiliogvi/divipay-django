@@ -24,7 +24,7 @@ import os
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-56@y$8wbxce+si34iw_qtvkk6j9&#((-=cchhhjay2gl#l*%a')
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = ['web-production-3260a.up.railway.app']
 
 
 
